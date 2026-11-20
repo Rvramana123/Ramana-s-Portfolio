@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VenkataRamana  – Portfolio</title>
+<meta name="description" content="Portfolio of Your Name, a recent graduate looking for a first role.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #fff8ef;
+  --surface: #ffffff;
+  --ink: #1b1b3a;
+  --muted: #5d5a7a;
+  --line: #eadfce;
+  --violet: #6c4cff;
+  --coral: #ff5a7a;
+  --sun: #ffb703;
+  --teal: #00a896;
+  --sky: #2f8cff;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Literata", Georgia, serif;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14122b; --surface: #201d40; --ink: #f4f1ff; --muted: #b3aed6; --line: #34305c;
+    --violet: #9a85ff; --coral: #ff7d96; --sun: #ffc83d; --teal: #2fd3c0; --sky: #6db0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14122b; --surface: #201d40; --ink: #f4f1ff; --muted: #b3aed6; --line: #34305c;
+  --violet: #9a85ff; --coral: #ff7d96; --sun: #ffc83d; --teal: #2fd3c0; --sky: #6db0ff;
+  color-scheme: dark;
+}
+
+
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 4rem); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.7 var(--body); overflow-x: hidden; }
+a { color: var(--violet); text-underline-offset: 3px; font-weight: 600; }
+a:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 3px; }
+.wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; }
+
+/* 3. NAV */
+header.top { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 3px solid var(--sun); padding-top: env(safe-area-inset-top, 0px); }
+header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 3.5rem; }
+header.top strong { font-family: var(--display); font-weight: 800; }
+nav { display: flex; gap: 1.1rem; flex-wrap: wrap; font-family: var(--display); font-weight: 500; font-size: .95rem; }
+nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
+nav a:hover { color: var(--coral); }
+
+
+.hero { position: relative; padding: 3.5rem 0 4rem; }
+.hero .wrap { display: grid; gap: 2.5rem; align-items: center; }
+.hero h1 { font-weight: 800; font-size:60px; letter-spacing: -0.03em; }
+.hero h1 span { color: var(--violet); background: linear-gradient(90deg, var(--violet), var(--coral)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p.lead { font-size: 1.2rem; max-width: 32rem; margin: 1.25rem 0 0; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+.btn { display: inline-block; padding: .75rem 1.3rem; border-radius: 999px; text-decoration: none; font-family: var(--display); font-weight: 700; }
+.btn.primary { background: var(--violet); color: #fff; }
+.btn.ghost { border: 2px solid var(--coral); color: var(--coral); }
+.btn:hover { transform: translateY(-2px); }
+.status { margin-top: 1.5rem; color: var(--muted); font-size: .95rem; }
+.status::before { content: ""; display: inline-block; width: .6rem; height: .6rem; border-radius: 50%; background: var(--teal); margin-right: .5rem; }
+
+
+.photo-wrap { position: relative; width: min(18rem, 80vw); aspect-ratio: 1; margin: 0 auto; }
+.photo-wrap::before, .photo-wrap::after { content: ""; position: absolute; border-radius: 50%; z-index: 0; }
+.photo-wrap::before { width: 70%; height: 70%; background: var(--sun); right: -12%; top: -8%; }
+.photo-wrap::after { width: 45%; height: 45%; background: var(--teal); left: -10%; bottom: -6%; }
+.photo { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover;
+  border-radius: 42% 58% 55% 45% / 50% 45% 55% 50%; border: 5px solid var(--coral); background: var(--surface); }
+@media (min-width: 46rem) { .hero .wrap { grid-template-columns: 1.4fr 1fr; } }
+
+
+section { padding: 3rem 0; }
+section h2 { font-size: 2rem; margin-bottom: 1.5rem; display: inline-block; border-bottom: 6px solid var(--c, var(--violet)); padding-bottom: .2rem; }
+#about { --c: var(--sun); } #projects { --c: var(--coral); } #skills { --c: var(--teal); } #education { --c: var(--sky); } #contact { --c: var(--violet); }
+
+
+.grid { display: grid; gap: 1.25rem; }
+@media (min-width: 46rem) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.project { background: var(--surface); border-radius: 1rem; padding: 1.4rem; border-top: 8px solid var(--c); box-shadow: 0 6px 0 var(--c); }
+.project:nth-child(1) { --c: var(--coral); } .project:nth-child(2) { --c: var(--teal); } .project:nth-child(3) { --c: var(--sky); }
+.project h3 { font-size: 1.3rem; }
+.project .tools { color: var(--muted); font-size: .9rem; margin: .3rem 0 .7rem; }
+.project p { margin: 0 0 .7rem; }
+
+
+.group { margin-bottom: 1.4rem; }
+.group h3 { font-size: 1.05rem; margin-bottom: .6rem; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips li { padding: .35rem .9rem; border-radius: 999px; font-family: var(--display); font-weight: 600; font-size: .95rem; color: #1b1b3a; background: var(--sun); }
+.chips li:nth-child(4n+2) { background: var(--coral); }
+.chips li:nth-child(4n+3) { background: var(--teal); }
+.chips li:nth-child(4n+4) { background: var(--sky); }
+
+
+dl { margin: 0; display: grid; gap: 1rem; }
+dt { font-family: var(--display); font-weight: 700; color: var(--sky); }
+dd { margin: .15rem 0 0; }
+@media (min-width: 40rem) { dl { grid-template-columns: 10rem 1fr; gap: 1rem 1.5rem; } dd { margin: 0; } }
+
+
+.contact-link { font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 6vw, 2.5rem); word-break: break-word; color: var(--violet); }
+footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; border-top: 3px solid var(--teal); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <strong>Rai Venkata Ramana</strong>
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Hi, I’m <span>Venkata Ramana</span>.</h1>
+        <p class="lead">I'm a passionate fresher who loves building useful projects, learning new technologies. I'm currently looking for my first job opportunity where I can contribute, gain experience, and grow as a professional.</p>
+
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn ghost" href="#contact">Contact me</a>
+        </div>
+        <p class="status">Open to internships and entry-level jobs</p>
+      </div>
+
+      <div class="photo-wrap">
+      
+        <svg class="photo" viewBox="0 0 200 200" role="img" aria-label="Placeholder for your photo">
+          <rect width="200" height="200" fill="#e9e4ff"/>
+          <circle cx="100" cy="78" r="36" fill="#6c4cff"/>
+          <path d="M28 200c0-46 32-74 72-74s72 28 72 74z" fill="#6c4cff"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <p>I’m a B.Tech graduate and aspiring Software Engineer with skills in Python Full Stack Development. I enjoy building clean, user-friendly web applications and solving problems through coding. I’m looking for a fresher opportunity where I can apply my skills, work on real-world projects, and grow as a software professional.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid">
+        <!-- Copy one <article> block to add another project -->
+        <article class="project">
+          <h3>Portfolio</h3>
+          <p class="tools">HTML, CSS, JavaScript</p>
+          <p>A responsive personal portfolio website built to showcase my technical skills, projects, and achievements.
+             <br/>Designed with a clean interface and simple navigation to help recruiters and visitors easily explore my profile and work.</p>
+          <a href="#">View project</a>
+        </article>
+        <article class="project">
+          <h3>Sales Data Analysis and Reporting System</h3>
+          <p class="tools">Python, Pandas,MySQL,SQL</p>
+          <p>Developed a sales data analysis project using Python, Pandas, and SQL to organize and analyze sales records. Cleaned datasets, performed SQL queries, and generated meaningful insights about sales performance, customer trends, and business growth.</p>
+          <a href="#">View project</a>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="group"><h3>Technical</h3>
+        <ul class="chips"><li>Python</li><li>JavaScript</li><li>React.js</li><li>HTML &amp; CSS</li><li>SQL</li></ul></div>
+      <div class="group"><h3>Working with people</h3>
+        <ul class="chips"><li>Teamwork</li><li>Presenting</li><li>Clear writing</li></ul></div>
+      <div class="group"><h3>Languages</h3>
+        <ul class="chips"><li>English</li><li>Telugu</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <dl>
+        <dt>2020 to 2024</dt><dd>B.Tech in EEE from ANITS College, Andhra University</dd>
+        <dt>Certificates</dt><dd>Python FullStack Intern, Millennium Software Solutions, 2026</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>The best way to reach me is email.</p>
+      <a class="contact-link" href="venkataramana99k@gmail.com">venkataramana99k@gmail.com</a>
+      <p><a href="linkedin.com/in/venkata-ramana-rai">LinkedIn</a> · <a href="https://github.com/Rvramana123">GitHub</a> · <a href="#">Download résumé</a></p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="year">2026</span> Venkata Ramana</div></footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
